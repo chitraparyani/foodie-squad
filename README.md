@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FoodieSquad 
 ## Web Design- Final Project
 
@@ -37,3 +38,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+=======
+# foodie-squad
+MEAN stack application to search and view the restaurants.
+>>>>>>> 56d2f94c491283d203c3c38e1fe67f34d3518bc2
