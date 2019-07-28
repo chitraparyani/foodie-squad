@@ -1,0 +1,116 @@
+<html>
+
+<head>
+  <title> Restaurant Detail & Menu Items</title>
+</head>
+<!--displaying restaurant details-->
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="imgContentWrapper">
+        <div class="imgRes">
+          <img class="card-img" src='{{restaurant.logoUrl}}' alt="" />
+        </div>
+        <div class="contentRes">
+          <address>
+            <p class="card-text name">{{restaurant.name}}<br>
+              {{restaurant.foodTypes}}<br>
+              {{restaurant.streetAddress}}, {{restaurant.city}}, {{restaurant.zip}}</p>
+          </address>
+        </div> 
+      </div>
+    </div>
+  </div>
+<!--displaying hours and restaurant info-->
+  <div class="resdetails">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-2">
+        <b>Hours</b><br>{{restaurant.hours.Monday}}
+      </div>
+      <div class="col-2">
+        <b>ETA</b><br>{{restaurant.minWaitTime}} - {{restaurant.maxWaitTime}} <b>min</b>
+      </div>
+      <div class="col-2">
+        <b>Delivery Minimum</b><br>{{restaurant.minFreeDelivery}}
+      </div>
+    </div>
+  </div>
+<!--displaying menu, hours & info and reviews for restaurant -->
+  <div class="tab">
+    <button class="tablinks" (click)="open($event, 'menu')">Menu</button>
+    <button class="tablinks" (click)="open($event, 'info')">Hours & Info</button>
+    <button class="tablinks" (click)="open($event, 'reviews')">Reviews</button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div id="menu" class="tabcontent">
+        <mat-expansion-panel *ngFor="let menu of this.restService.getMenus()">
+          <mat-expansion-panel-header>
+            <p class="menuName"><strong>{{menu.name}}</strong></p>
+          </mat-expansion-panel-header>
+          <div class="row-12">
+            <div *ngFor="let item of menu.items">
+              <div class="col-12">
+                <div class="mat-card">
+                  <p class="name"><strong>{{item.name}}</strong></p>
+                  <p class="desc"><strong>{{item.description}}</strong></p>
+                  <p class="menuPrice"><strong>${{item.basePrice}}</strong></p>
+                </div>
+                <br><br>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </div>
+
+  <div id="info" class="tabcontent">
+      <br>
+      <h4 class="resHours">Restaurant Hours</h4><br>
+      <table style="width:50%" *ngFor="let item of hours| keyvalue">
+        <tr class="row">
+          <td class="col-4 data">{{item.key}} </td>
+          <td class="col-4 data">{{item.value}}</td>
+        </tr>
+      </table>
+      <!-- <br><br><br>
+      {{restaurant.latitude}}
+      {{restaurant.longitude}}
+      <br><br> -->
+      <hr>
+      <div>
+          <agm-map [latitude]="restaurant.latitude" [longitude]="restaurant.longitude">
+            <agm-marker [latitude]="restaurant.latitude" [longitude]="restaurant.longitude"></agm-marker>
+          </agm-map>
+        </div>
+    </div>
+
+  <div class="row review">
+
+  <div id="reviews" class="tabcontent">
+      <div class="col-3 reviewBtnWrapper">
+        <button mat-raised-button class="addReviewBtn" color="primary" (click)="addReviewButton()">Add Review</button>
+      </div>
+      <mat-card>
+        <app-review-create *ngIf="isAddReview"></app-review-create>
+        <app-review-list></app-review-list>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+  <app-footer></app-footer>
+
+</body>
+
+</html>
+
+<!-- <div *ngFor="let menu of menus">
+    {{menu.name}}
+  <div *ngFor="let item of menu.items">
+    {{item.name}}
+  </div>
+</div> -->

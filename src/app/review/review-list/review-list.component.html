@@ -1,0 +1,35 @@
+<!--
+  Using angular material design to show th reviews
+  Also we have implemented a spinner while will run till the time reviews are loaded
+ -->
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="reviews.length > 0">
+  <mat-accordion multi="true" *ngIf="reviews.length > 0 && !isLoading" >
+    <mat-expansion-panel  *ngFor="let review of reviews">
+    <mat-expansion-panel-header>
+      <div class="row">
+          <div class="col">
+              <strong>{{ review.title }}</strong>
+
+          </div>
+
+      </div>
+    </mat-expansion-panel-header>
+    <!--
+      following code will print stars for the rating given by user
+     -->
+    <p>
+      <span class="fa fa-star checked" *ngFor="let item of fillArray(review.rating)"></span>
+      <span class="fa fa-star" *ngFor="let item of fillArray(5-review.rating)"></span>
+    </p>
+    <p><strong>User Details: </strong> {{ review.userName }}</p>
+    <p><strong>Content: </strong> {{ review.content }}</p>
+    <mat-action-row *ngIf="isEdit">
+        <a mat-button color="primary" [routerLink]="['/edit', review.id]">EDIT</a>
+        <button mat-button color="warn" (click)="onDelete(review.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOption" (page) ="onChangePage($event)" *ngIf="reviews.length>0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="reviews.length <= 0 && !isLoading">No posts added yet!</p>
+

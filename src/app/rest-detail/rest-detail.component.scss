@@ -1,0 +1,227 @@
+.card-columns {
+column-count: 3;
+}
+.card-body{
+width: 500px;
+border: 1px solid gray;
+box-shadow: 1px 1px 3px #888;
+border-top: 10px solid silver;
+min-height: 120px;
+padding: 5px;
+margin: 10px;
+}
+.reviewBtnWrapper{
+  margin: 0 auto;
+}
+.review {
+  display: inline;
+
+}
+
+.text-truncate {
+font-size: 1.5em;
+color: peru;
+}
+
+.small{
+font-size: 1.2em;
+color: rosybrown;
+font-weight: heavy;
+}
+
+span {
+color: orangered;
+font-size: 1.5em;
+font-style: italic;
+font-weight: heavy;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu{
+color :orangered;
+}
+
+.menu_name {
+font-size: 2em;
+color: olivedrab;
+}
+
+/* Style the content */
+
+.content {
+background-image: linear-gradient( rgba(0,0,0,.9), rgba(0,0,0,.6) ),url(../../assets/img/food.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+background-color: #ddd;
+padding: 10px;
+height: 350px; /* Should be removed. Only for demonstration */
+}
+
+/* Style the footer */
+.footer {
+background-color: #f1f1f1;
+padding: 10px;
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color:#efa488;
+  padding-left: 20px;
+  .tablinks{
+    width: 32%;
+    text-align: center;
+    border-right: 1px solid black;
+    &:nth-child(3){
+      border-right: none;
+    }
+  }
+}
+.addReviewBtn{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+/* Style the buttons inside the tab */
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 17px;
+font-size: 1.2em;
+color: black;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+background-color: #ddd;
+color: orange;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding-top: 0%;
+  display: none;
+  padding: 6px 12px;
+  margin:0 auto;
+  border-top: none;
+  font-size: 2em;
+  color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  h4{
+    margin-left: 20px;
+  }
+}
+
+
+mat-raised-button {
+display: block;
+margin-left: auto;
+}
+
+button {
+align-content: left;
+}
+
+.menuName {
+font-size: 1.5em;
+color: black;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.name {
+font-size: 1.2em;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.menuPrice {
+float:right;
+color: green;
+margin-top: -10%;
+
+}
+
+.desc{
+  font-style: italic;
+}
+
+.resHours {
+  float: left;
+}
+
+tr, td {
+  text-align: center;
+  font-size: 0.75em;
+  font-weight: heavy;
+}
+.card-img{
+  border-radius: 150%;
+  width: 150px;
+  padding: 2%;
+}
+.card-text{
+  font-weight: heavy;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color :#fff;
+  font-size: 1.5em;
+}
+
+.card{
+  height: 3%;
+}
+
+.card-text food{
+  font-weight: heavy;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color :#fff;
+  font-size: 1.5em;
+  float: right;
+  margin-top: -30%;
+}
+.contentRes, .imgRes, .imgContentWrapper{
+  display: inline-block
+}
+
+.imgContentWrapper{
+  margin-top: 115px;
+}
+.imgRes{
+  vertical-align: middle;
+  margin-bottom: 95px;
+  margin-right: 20px;
+}
+.contentRes{
+  margin-top: 20px;
+}
+
+.resdetails {
+border: 3px solid #ccc;
+background-color:whitesmoke;
+height: 4%;
+div{
+  text-align:center;
+  div{
+    text-align: center;
+  }
+}
+}
+
+
+agm-map {
+  height: 300px;
+  //width: 500px;
+  margin: 10 10 10 10;
+
+}

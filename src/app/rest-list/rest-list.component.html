@@ -1,0 +1,159 @@
+<html>
+
+<head>
+        <title>
+                Restaurant Search Page
+        </title>
+</head>
+<!-- displaying list of restaurants -->
+<body>
+        <div class="content">
+        </div>
+
+        <div class="rest-container">
+                <div class="sidenav">
+                        <div class="card">
+
+                                <div class="row">
+
+                                        <div class="col-1">
+                                        </div>
+                                        <div class="col-9">
+                                                <button type="submit" (click)="delivery()" value="delivery"
+                                                        id="delButton"><strong>Delivery</strong></button>
+                                                <button type="submit" (click)="takeout()" value="takeout"
+                                                        id="takeoutButton"><strong>Takeout</strong></button>
+                                                <button type="submit" (click)="order()" value="order"
+                                                        id="isAlphabeticalButton"><strong>Sort By Street Address</strong></button>
+
+
+                                                <br>
+                                        </div>
+                                </div>
+                        </div>
+
+                </div>
+
+
+                <div *ngIf="isSearch">
+                        <div class="container">
+
+                                <div class="card" *ngFor="let res of restaurants">
+                                        <div class="row">
+                                                <div class="col-2">
+
+                                                        <img class="card-img" src='{{res.logoUrl}}'
+                                                                (click)=restaurantDetails(res.apiKey) alt="" /> </div>
+                                                <div class="col-3">
+                                                        <p class="card-text">{{res.name}}</p>
+                                                </div>
+                                                <div class="col-7">
+                                                        <p class="card-text ratings"></p>
+                                                        <p class="card-text delivery">Delivery Fee <br>
+                                                                <b>${{res.deliveryPrice}}</b>
+                                                        </p>
+                                                        <p class="card-text eta">ETA <br> <b>{{res.minWaitTime}} -
+                                                                        {{res.maxWaitTime}}
+                                                                        min</b></p>
+                                                        <p class="card-text minorder">Minimum order <br>
+                                                                <b>${{res.deliveryMin}}</b></p>
+                                                </div>
+                                        </div>
+                                        <br>
+                                </div>
+                        </div>
+                </div>
+
+                <div *ngIf="isDelivery">
+                        <div class="container">
+
+                                <div class="card" *ngFor="let res of restDelivery">
+                                        <div class="row">
+                                                <div class="col-2">
+
+                                                        <img class="card-img" src='{{res.logoUrl}}'
+                                                                (click)=restaurantDetails(res.apiKey) alt="" /> </div>
+                                                <div class="col-3">
+                                                        <p class="card-text">{{res.name}}</p>
+                                                </div>
+                                                <div class="col-7">
+                                                        <p class="card-text ratings">No ratings yet</p>
+                                                        <p class="card-text delivery">Delivery Fee <br>
+                                                                <b>${{res.deliveryPrice}}</b>
+                                                        </p>
+                                                        <p class="card-text eta">ETA <br> <b>{{res.minWaitTime}} -
+                                                                        {{res.maxWaitTime}}
+                                                                        min</b></p>
+                                                        <p class="card-text minorder">Minimum order <br>
+                                                                <b>${{res.deliveryMin}}</b></p>
+                                                </div>
+                                        </div>
+                                        <br>
+                                </div>
+                        </div>
+                </div>
+
+
+                <div *ngIf="isTakeout">
+                        <div class="container">
+                                <div class="card" *ngFor="let res of restTakeout">
+                                        <div class="row">
+                                                <div class="col-2">
+                                                        <img class="card-img" src='{{res.logoUrl}}'
+                                                                (click)=restaurantDetails(res.apiKey) alt="" /> </div>
+                                                <div class="col-3">
+                                                        <p class="card-text">{{res.name}}</p>
+                                                </div>
+                                                <div class="col-7">
+                                                        <p class="card-text ratings">No ratings yet</p>
+                                                        <p class="card-text delivery">Delivery Fee <br>
+                                                                <b>${{res.deliveryPrice}}</b>
+                                                        </p>
+                                                        <p class="card-text eta">ETA <br> <b>{{res.minWaitTime}} -
+                                                                        {{res.maxWaitTime}}
+                                                                        min</b></p>
+                                                        <p class="card-text minorder">Minimum order <br>
+                                                                <b>${{res.deliveryMin}}</b></p>
+                                                </div>
+                                        </div>
+                                        <br>
+                                </div>
+                        </div>
+                </div>
+
+                <div *ngIf="isAlphabetical">
+                        <div class="container">
+
+                                <div class="card" *ngFor="let res of restOrder">
+                                        <div class="row">
+                                                <div class="col-2">
+
+                                                        <img class="card-img" src='{{res.logoUrl}}'
+                                                                (click)=restaurantDetails(res.apiKey) alt="" /> </div>
+                                                <div class="col-3">
+                                                        <p class="card-text">{{res.name}}</p>
+                                                </div>
+                                                <div class="col-7">
+                                                        <p class="card-text ratings">No ratings yet</p>
+                                                        <p class="card-text delivery">Delivery Fee <br>
+                                                                <b>${{res.deliveryPrice}}</b>
+                                                        </p>
+                                                        <p class="card-text eta">ETA <br> <b>{{res.minWaitTime}} -
+                                                                        {{res.maxWaitTime}}
+                                                                        min</b></p>
+                                                        <p class="card-text minorder">Minimum order <br>
+                                                                <b>${{res.deliveryMin}}</b></p>
+                                                </div>
+                                        </div>
+                                        <br>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <app-footer></app-footer>
+
+
+</body>
+
+</html>

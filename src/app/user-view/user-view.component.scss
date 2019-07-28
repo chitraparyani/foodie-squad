@@ -1,0 +1,34 @@
+img {
+    height: 150px;
+    width: 150px;
+    border: 5px solid #000;
+    border-radius: 50%;
+}
+.user-detail{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.review-title {
+  margin:auto;
+  margin-top: 20px;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 35px;
+  color: darkcyan;
+}
+
+// new css for image
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+}

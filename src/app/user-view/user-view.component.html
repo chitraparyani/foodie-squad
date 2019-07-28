@@ -1,0 +1,64 @@
+<main class="container">
+  <mat-card>
+    <h2>{{user.fname}} {{user.lname}}</h2>
+    <div class="user-detail">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Details
+          </mat-panel-title>
+          <mat-panel-description>
+            See Your Info
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div>
+          <h5>Email : {{user.email}}</h5>
+        </div>
+        <div>
+          <h5>Phone : {{user.phone}}</h5>
+        </div>
+
+      </mat-expansion-panel>
+    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+
+    <!-- user image loading code start -->
+
+    <!--
+      User can select any image the same image will be loaded in the image panel
+      and will be saved once the user press send button
+
+      Validation has been added for that only .jpg, .jpeg and .png files
+     -->
+    <hr>
+    <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+      <div *ngIf="isPreview==false">
+        <img [src]="imagePreview?imagePreview: imagePath">
+      </div>
+      <!--
+        this is for image preview which the user selects for its profile picture
+       -->
+      <div *ngIf= "imagePreview !== '' && imagePreview && form.get('image').valid ">
+
+        <img [src]="imagePreview" alt="No Preview">
+      </div>
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-5">
+        <button mat-stroked-button type="button" (click)="FilePicker.click()">Pick Image</button>
+        <input type="file" #FilePicker (change)="onImagePicked($event)">
+      </div>
+      </div>
+      <hr>
+      <div>
+      <button mat-raised-button color="accent" type="submit">Save Profile Pic</button>
+    </div>
+    </form>
+
+    <!-- user image loading code ends -->
+  </mat-card>
+    <span class="review-title">All Reviews:</span>
+    <app-review-list></app-review-list>
+</main>

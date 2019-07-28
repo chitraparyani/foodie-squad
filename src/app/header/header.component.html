@@ -1,0 +1,13 @@
+<mat-toolbar class="toolbar" color="primary">
+  <img src="../../assets/img/foodLogo.png"/>
+  <span><a routerLink="" >FoodieSquad</a></span>
+  <span class="spacer"></span>
+  <ul>
+    <li><a mat-button [routerLink]="['/home']" routerLinkActive="mat-accent">Home</a></li>
+    <li><a mat-button [routerLink]="['/about']" routerLinkActive="mat-accent">About</a></li>
+    <li><a mat-button [routerLink]="['/contact']" routerLinkActive="mat-accent">Contact</a></li>
+    <li *ngIf="checkUser()"><a mat-button (click)="userButton(event);">{{userName}}</a></li>
+    <li *ngIf="checkUser()"><a mat-button (click)="logOut();">Log Out</a></li>
+    <li *ngIf="!checkUser()"><a mat-button (click)="logOut();">Log In</a></li>
+  </ul>
+</mat-toolbar>

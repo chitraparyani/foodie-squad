@@ -1,0 +1,41 @@
+// Background css
+#background{
+    background: url(../../assets/img/aboutBackground.jpg)no-repeat center center fixed; 
+    background-size: cover;
+    margin: 0 auto;
+    height: 766px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+}
+// Card Css
+.example-card {
+    max-width: 50%;
+    margin-left: 100px;
+    background-color: #365f73;
+    color: white;
+    top: 20px;
+    margin-bottom: 20px;
+    &:nth-child(2n){
+        background-color: #ce6f0c;
+        margin-left: 635px;
+    }
+  }
+  // Heading and Titles stylings
+mat-card-title, mat-card-subtitle{
+    margin-top:20px;
+    font-weight:bold; 
+    color:white;
+  }
+  .example-header-image {
+    margin: 50px 20px;
+    height:150px;
+    width:150px;
+    img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+  }

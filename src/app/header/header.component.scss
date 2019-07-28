@@ -1,0 +1,33 @@
+li {
+  float: left;
+}
+.mat-toolbar.mat-primary.toolbar{
+    background: #384f4e;
+    img{
+      height: 60px;
+    }
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+

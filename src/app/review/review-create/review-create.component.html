@@ -1,0 +1,68 @@
+<!--
+  user can add review by entering the review in the text field and also can give stars rating as well
+  validations are added for the input fields
+  for stars there is no validation and in case no stars are give then
+  automatically it will be given lowest rating that is
+ -->
+
+<main>
+  <mat-card>
+    <div class="container">
+      <form (submit)="onSaveReview(reviewForm)" #reviewForm="ngForm" *ngIf="!isLoading">
+        <div class="row">
+          <div class="col-25">
+            <label for="rating">Rating</label>
+          </div>
+          <div class="col-75">
+
+            <div class="rate">
+              <input type="radio" id="star5" name="rate" value="5" [ngModel]="5" #rate="ngModel" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="rate" value="4" [ngModel]="4" #rate="ngModel" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="rate" value="3" [ngModel]="3" #rate="ngModel" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="rate" value="2" [ngModel]="2" #rate="ngModel" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="rate" value="1" [ngModel]="1" #rate="ngModel" />
+              <label for="star1" title="text">1 star</label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-25">
+            <label for="title">Title</label>
+          </div>
+          <div class="col-75">
+            <mat-form-field>
+              <input matInput type="text" name="title" [ngModel]="review?.title" required minlength="3"
+                placeholder="Review Title" #title="ngModel">
+              <mat-error *ngIf="title.invalid">Please enter a review title.</mat-error>
+            </mat-form-field>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="content">Content</label>
+          </div>
+          <div class="col-75">
+            <mat-form-field>
+              <textarea matInput rows="4" name="content" [ngModel]="review?.content" required
+                placeholder="Review Content" #content="ngModel"></textarea>
+              <mat-error *ngIf="content.invalid">Please enter a review content.</mat-error>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <button mat-raised-button color="accent" type="submit">Save Review</button>
+        </div>
+        <hr>
+      </form>
+    </div>
+  </mat-card>
+</main>

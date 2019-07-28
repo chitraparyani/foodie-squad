@@ -1,0 +1,116 @@
+<div class="container" id="container" [ngClass]="{'right-panel-active' : isSignUp}">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<mat-form-field class="fixed-width">
+				<input type="text" matInput placeholder="First Name" [formControl]="fnameFormControl" [(ngModel)]="signUpFName" name="signUpFName"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="fnameFormControl.hasError('fname') && !fnameFormControl.hasError('required')">
+				  First Name is incorrect
+				</mat-error>
+				<mat-error *ngIf="fnameFormControl.hasError('required')">
+				  First Name is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="fixed-width">
+				<input type="text" matInput placeholder="Last Name" [formControl]="lnameFormControl" [(ngModel)]="signUpLName" name="signUpLName"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="lnameFormControl.hasError('lname') && !lnameFormControl.hasError('required')">
+				  Last Name is incorrect
+				</mat-error>
+				<mat-error *ngIf="lnameFormControl.hasError('required')">
+				  Last Name is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="fixed-width">
+				<input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="signUpEmail" name="signUpEmail"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+				  Please enter a valid email address
+				</mat-error>
+				<mat-error *ngIf="emailFormControl.hasError('required')">
+				  Email is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="fixed-width">
+				<input type="password" matInput placeholder="Password" [formControl]="passwordFormControl" [(ngModel)]="signUpPassword" name="signUpPassword"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+				  Password is incorrect
+				</mat-error>
+				<mat-error *ngIf="passwordFormControl.hasError('required')">
+				  Password is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="fixed-width">
+				<input type="text" matInput placeholder="Phone Number" [formControl]="phoneFormControl" [(ngModel)]="signUpPhone" name="signUpPhone"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="phoneFormControl.hasError('phone') && !phoneFormControl.hasError('required')">
+				  Phone number is incorrect
+				</mat-error>
+				<mat-error *ngIf="phoneFormControl.hasError('required')">
+				  Phone number is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+
+			<button (click)="signUpUser()">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1 class="sign-in-header">Sign in</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your account</span> -->
+
+			<mat-error class="invalid-user-error" *ngIf="signInemailFormControl.hasError('incorrect') || signInpasswordFormControl.hasError('incorrect')">
+					Either of Email or Password is <strong>incorrect</strong>
+				</mat-error>
+			<mat-form-field class="fixed-width">
+				<input matInput placeholder="Email" [formControl]="signInemailFormControl" [(ngModel)]="loginEmail" name="loginEmail"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="signInemailFormControl.hasError('email') && !signInemailFormControl.hasError('required')">
+				  Please enter a valid email address
+				</mat-error>
+				<mat-error *ngIf="signInemailFormControl.hasError('required')">
+				  Email is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+			<!-- <input type="email" [(ngModel)]="loginEmail" name="loginEmail" placeholder="Email" /> -->
+			<mat-form-field class="fixed-width">
+				<input type="password" matInput placeholder="Password" [formControl]="signInpasswordFormControl" [(ngModel)]="loginPassword" name="loginPassword"
+					   [errorStateMatcher]="matcher">
+				<mat-error *ngIf="signInpasswordFormControl.hasError('password') && !signInpasswordFormControl.hasError('required')">
+				  Password is incorrect
+				</mat-error>
+				<mat-error *ngIf="signInpasswordFormControl.hasError('required')">
+				  Password is <strong>required</strong>
+				</mat-error>
+			</mat-form-field>
+			<!-- <input type="password" [(ngModel)]="loginPaassword" name="loginPassword" placeholder="Password" />
+			<a href="#">Forgot your password?</a> -->
+			<button (click)="signInUser()">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn" (click)="signInButtonClick()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp" (click)="signUpButtonClick()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>

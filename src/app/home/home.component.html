@@ -1,0 +1,34 @@
+<div class="main">
+  <div class="background">
+    <h1>Welcome to FoodieSquad!</h1>
+
+    <input type = "text" placeholder="Search for restaurant or cuisine" ngModel required #search="ngModel">
+    <button type="submit" (click)="onSearch(search.value)">Search</button>
+  </div>
+  <div class="top-restaurants">
+    <div>
+        <img src="../../assets/img/star.png"/>
+        <span>Top Restaurants</span>
+        <img src="../../assets/img/star.png"/>
+    </div>
+    <div class="box-wraper">
+      <div class="top-wrapper" *ngFor = "let item of top5RestaurantsArray">
+        <app-top-restaurants #buttonElement igxButton [restaurant]="item" (click)='showOverlay(item)'></app-top-restaurants>
+      </div>
+    </div>
+  </div>
+  <div class="top-user second-div">
+    <div>
+        <img src="../../assets/img/star.png"/>
+        <span>Top Users</span>
+        <img src="../../assets/img/star.png"/>
+    </div>
+
+    <div class="box-wraper">
+      <div class="top-wrapper" *ngFor = "let item of top5UsersArray;">
+        <app-top-user #buttonElement igxButton [user]="item"></app-top-user>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
