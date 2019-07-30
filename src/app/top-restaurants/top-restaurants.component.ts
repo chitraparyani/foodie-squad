@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./top-restaurants.component.scss']
 })
 export class TopRestaurantsComponent implements OnInit {
-  @Input('restaurant') private currRestaurant: any;
+  @Input('restaurant') public currRestaurant: any;
   constructor() { }
 
   ngOnInit() {

@@ -55,7 +55,7 @@ export class RestDetailComponent implements OnInit {
    this.route.params.subscribe(params => {
   // alert(params['apiKey']);
   this.restService.setRestId(params.apiKey);
-  this.httpClient.get('http://localhost:3000/restaurant?apiKey=' + params.apiKey)
+  this.httpClient.get('/restaurant?apiKey=' + params.apiKey)
     .subscribe(data => {
     //  var res = data;
       this.restaurant = JSON.parse(JSON.stringify(data)).restaurant;

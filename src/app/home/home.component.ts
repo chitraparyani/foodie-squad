@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
   private destroy$ = new Subject<boolean>();
   private _overlayId: string;
   private allReviews: Array<Review>;
-  private top5RestaurantsArray: Array<any> = new Array();
-  private top5UsersArray:Array<User> = new Array();
+  public top5RestaurantsArray: Array<any> = new Array();
+  public top5UsersArray:Array<User> = new Array();
 
   // Constructor for injecting all Services and Dailogs
   constructor(private httpClient: HttpClient,public dailog:MatDialog, private userService: UserService, private reviewService:ReviewService, public restService: RestService, private router : Router, @Inject(IgxOverlayService) public overlayService: IgxOverlayService ) {

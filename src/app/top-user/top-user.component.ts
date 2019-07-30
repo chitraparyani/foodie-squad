@@ -7,7 +7,7 @@ import { User } from '../models/User';
   styleUrls: ['./top-user.component.scss']
 })
 export class TopUserComponent implements OnInit {
-  @Input('user') private currUser:User;
+  @Input('user') public currUser:User;
   constructor() { }
 
   ngOnInit() {
