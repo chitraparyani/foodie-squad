@@ -6,6 +6,8 @@ const path = require("path");
 
 const app = express();
 
+app.use(express.static(__dirname + '/dist/foodie-squad'));
+
 // import our model
 
 const User = require('./models/user');
