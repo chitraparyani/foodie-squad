@@ -24,7 +24,7 @@ export class RestDetailComponent implements OnInit {
  userLogged: User;
  isAddReview = false;
   menus: Array<any>;
-  restaurant = {"name":"", "foodTypes":"" ,"streetAddress":"", "city":"" ,"zip":"", "hours":"" ,"minWaitTime":"", "maxWaitTime":"" ,"minFreeDelivery":"", "longitude":"" , "latitude":""}
+  restaurant = {"logoUrl":"", "name":"", "foodTypes":"" ,"streetAddress":"", "city":"" ,"zip":"", "hours":"" ,"minWaitTime":"", "maxWaitTime":"" ,"minFreeDelivery":"", "longitude":"" , "latitude":""}
   apiKey: String;
   hours = '';
   // searchString: string;
