@@ -24,7 +24,7 @@ export class RestDetailComponent implements OnInit {
  userLogged: User;
  isAddReview = false;
   menus: Array<any>;
-  restaurant = {};
+  restaurant = {"name":"", "foodTypes":"" ,"streetAddress":"", "city":"" ,"zip":"", "hours":"" ,"minWaitTime":"", "maxWaitTime":"" ,"minFreeDelivery":"", "longitude":"" , "latitude":""}
   apiKey: String;
   hours = '';
   // searchString: string;
@@ -59,7 +59,6 @@ export class RestDetailComponent implements OnInit {
     .subscribe(data => {
     //  var res = data;
       var rest = JSON.parse(JSON.stringify(data)).restaurant;
-      this.restaurant = JSON.parse(rest);
       this.restService.setRestaurant(rest);
       // console.log( this.restService.getRestaurant());
       // console.log(this.restService.getRestaurant());
